@@ -43,11 +43,6 @@
       
 <section class="cover">
     
-      
-      <a class="forkMe" href="https://github.com/Shen-Yu/hexo-theme-ayer"
-        target="_blank"><img width="149" height="149" src="/images/forkme.png"
-          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
-    
   <div class="cover-frame">
     <div class="bg-box">
       <img src="/images/cover1.jpg" alt="image frame" />
@@ -122,21 +117,9 @@
 <p> <a href="https://www.typora.io/" target="_blank" rel="noopener">Typora官网</a> </p>
 </li>
 <li><p>学会使用makedown写文章（语法很简单，5分钟上手）</p>
-<p><a href="https://www.jianshu.com/p/191d1e21f7ed/" target="_blank" rel="noopener">makedown基本语法</a></p>
-</li>
-<li><p>将写好的makedown文章复制到你hexo博客文件夹 中 source 下的 _posts 中，默认只有一个 hello-world.md；</p>
-</li>
-<li><p>复制完之后然后使用文本编辑器打开它，在第一行加上title，内容自定(这个title会成为你文章的标题：不写也没关系，会取默认的作为标题)，</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在你博客站点文件夹下执行cmd,打开命令行，输入 hexo g (完整命令为hexo generate)，用于生成静态文件</p>
-</li>
-<li><p>输入 hexo s(完整命令为hexo server)，用于启动服务器，主要用来本地预览；完成后 打开浏览器输入 localhost:4000，会发现多了你刚写的那篇博客</p>
-</li>
-<li><p>最后输入hexo d(hexo deploy)，用于将本地文件发布到github等git仓库上</p>
-</li>
-</ul>
-
+      
+      <a class="article-more-link" href="/2020/05/08/hexo%E5%A6%82%E4%BD%95%E5%8F%91%E8%A1%A8%E6%96%87%E7%AB%A0/">阅读更多...</a>
+      
       
       <!-- reward -->
       
@@ -224,273 +207,9 @@
 </tbody></table>
 </li>
 </ul>
-<h3 id="打点"><a href="#打点" class="headerlink" title="打点"></a>打点</h3><ul>
-<li><p>参数说明</p>
-<table>
-<thead>
-<tr>
-<th>参数名称</th>
-<th>参数说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Date</td>
-<td>日期</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>Value</td>
-<td>数值</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>Symbol</td>
-<td>svg图标</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>Color</td>
-<td>图标颜色</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>Baseline</td>
-<td>图标偏移（0 居中 1 上 2 下）</td>
-<td>必填</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>数据格式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;一个点</span><br><span class="line">[&#123;</span><br><span class="line">    type: &#39;dot&#39;,</span><br><span class="line">    data: [</span><br><span class="line">        &#123;</span><br><span class="line">            Date: 20200220,</span><br><span class="line">            Value: 16.5,</span><br><span class="line">            Symbol: &#39;\ue616&#39;, &#x2F;&#x2F; \ue616(买) \ue618（卖）</span><br><span class="line">            Color: &#39;rgb(240,0,0)&#39;,</span><br><span class="line">            Baseline: 0 &#x2F;&#x2F; 0 居中 1 上 2 下</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;]</span><br><span class="line">&#x2F;&#x2F;多个点</span><br><span class="line">[&#123;</span><br><span class="line">    type: &#39;dot&#39;,</span><br><span class="line">    data: [</span><br><span class="line">        &#123;</span><br><span class="line">            Date: 20200220,</span><br><span class="line">            Value: 16.5,</span><br><span class="line">            Symbol: &#39;\ue616&#39;, &#x2F;&#x2F; \ue616(买) \ue618（卖）</span><br><span class="line">            Color: &#39;rgb(240,0,0)&#39;,</span><br><span class="line">            Baseline: 0 &#x2F;&#x2F; 0 居中 1 上 2 下</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            Date: 20200318,</span><br><span class="line">            Value: 13.5,</span><br><span class="line">            Symbol: &#39;\ue618&#39;, &#x2F;&#x2F; \ue616(买) \ue618（卖）</span><br><span class="line">            Color: &#39;rgb(240,240,0)&#39;,</span><br><span class="line">            Baseline: 0 &#x2F;&#x2F; 0 居中 1 上 2 下</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h3><ul>
-<li><p>参数说明</p>
-<table>
-<thead>
-<tr>
-<th>参数名称</th>
-<th>参数说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Date</td>
-<td>日期</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>Time</td>
-<td>时间(分钟K线才有效)</td>
-<td>可选</td>
-</tr>
-<tr>
-<td>Value</td>
-<td>数值</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>Color</td>
-<td>颜色</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>Text</td>
-<td>文字</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>Font</td>
-<td>字体风格</td>
-<td>可选</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>数据格式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//绘制单条文字</span></span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        type: <span class="string">'text'</span>,</span><br><span class="line">        data: [</span><br><span class="line">            &#123; <span class="attr">Date</span>: <span class="number">20190926</span>, <span class="attr">Time</span>: <span class="number">945</span>, <span class="attr">Value</span>: <span class="number">14.5</span>, <span class="attr">Text</span>: <span class="string">'我来试一试'</span>, <span class="attr">Color</span>: <span class="string">'rgb(0,255,50)'</span> &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"><span class="comment">//绘制多条文字</span></span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">      type: <span class="string">'text'</span>,</span><br><span class="line">        data: [</span><br><span class="line">            &#123; <span class="attr">Date</span>: <span class="number">20190926</span>, <span class="attr">Time</span>: <span class="number">945</span>, <span class="attr">Value</span>: <span class="number">14.5</span>, <span class="attr">Text</span>: <span class="string">'我来试一试'</span>, <span class="attr">Color</span>: <span class="string">'rgb(0,255,50)'</span> &#125;,</span><br><span class="line">            &#123; <span class="attr">Date</span>: <span class="number">20190905</span>, <span class="attr">Time</span>: <span class="number">1425</span>, <span class="attr">Value</span>: <span class="number">14.15</span>, <span class="attr">Text</span>: <span class="string">'俺也来'</span>, <span class="attr">Font</span>: <span class="string">'50px 微软雅黑'</span> &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<h3 id="画线"><a href="#画线" class="headerlink" title="画线"></a>画线</h3><ul>
-<li><p>参数说明</p>
-<table>
-<thead>
-<tr>
-<th>参数名称</th>
-<th>参数说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Color</td>
-<td>颜色</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>BGColor</td>
-<td>填充色</td>
-<td>可选</td>
-</tr>
-<tr>
-<td>Point</td>
-<td>点坐标数据集合</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>Date</td>
-<td>日期</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>Value</td>
-<td>数值</td>
-<td>必填</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<ul>
-<li><p>数据格式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一条直线</span></span><br><span class="line">&#123;</span><br><span class="line">    type: <span class="string">'line'</span>,</span><br><span class="line">    data: [</span><br><span class="line">        &#123;</span><br><span class="line">            Color: <span class="string">'rgb(255,0,0)'</span>,</span><br><span class="line">            BGColor: <span class="string">'rgba(255,0,0,0.5)'</span>,</span><br><span class="line">            Point: [</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20200220</span>, <span class="attr">Value</span>: <span class="number">16.5</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20200318</span>, <span class="attr">Value</span>: <span class="number">13.5</span> &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// 多条直线 </span></span><br><span class="line">&#123;</span><br><span class="line">    type: <span class="string">'line'</span>,</span><br><span class="line">    data: [</span><br><span class="line">        &#123;</span><br><span class="line">            Color: <span class="string">'rgb(255,0,0)'</span>, </span><br><span class="line">            BGColor: <span class="string">'rgba(255,0,0,0.5)'</span>, </span><br><span class="line">            Point: [</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20200220</span>, <span class="attr">Value</span>: <span class="number">16.5</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20200318</span>, <span class="attr">Value</span>: <span class="number">13.5</span> &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            Color: <span class="string">'rgb(255,0,0)'</span>,</span><br><span class="line">            BGColor: <span class="string">'rgba(255,0,0,0.5)'</span>,</span><br><span class="line">          	Point: [</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20200220</span>, <span class="attr">Value</span>: <span class="number">13.5</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20200318</span>, <span class="attr">Value</span>: <span class="number">16.5</span> &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<h3 id="面积"><a href="#面积" class="headerlink" title="面积"></a>面积</h3><ul>
-<li><p>参数说明</p>
-<table>
-<thead>
-<tr>
-<th>参数名称</th>
-<th>参数说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Start</td>
-<td>开始时间坐标集合</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>End</td>
-<td>开始时间坐标集合</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>Color</td>
-<td>区域颜色</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>Date</td>
-<td>开始日期/结束日期</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>Time</td>
-<td>开始时间/结束时间（仅对分钟K线有效）</td>
-<td>可选</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>数据格式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个区域</span></span><br><span class="line">[&#123;</span><br><span class="line">    type: <span class="string">'area'</span>,</span><br><span class="line">    data: [</span><br><span class="line">        &#123;</span><br><span class="line">            Start: &#123; <span class="attr">Date</span>: <span class="number">20200220</span>, <span class="attr">Time</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">            End: &#123; <span class="attr">Date</span>: <span class="number">20200318</span>, <span class="attr">Time</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">            Color: <span class="string">'rgba(250,128,144,0.5)'</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;]</span><br><span class="line"><span class="comment">//多个区域</span></span><br><span class="line">[&#123;</span><br><span class="line">    type: <span class="string">'area'</span>,</span><br><span class="line">    data: [</span><br><span class="line">        &#123;</span><br><span class="line">          Start: &#123; <span class="attr">Date</span>: <span class="number">20200220</span>, <span class="attr">Time</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">            End: &#123; <span class="attr">Date</span>: <span class="number">20200318</span>, <span class="attr">Time</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">            Color: <span class="string">'rgba(250,128,144,0.5)'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            Start: &#123; <span class="attr">Date</span>: <span class="number">20191206</span>, <span class="attr">Time</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">            End: &#123; <span class="attr">Date</span>: <span class="number">20200103</span>, <span class="attr">Time</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">            Color: <span class="string">'rgba(0,255,0,0.5)'</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<h3 id="多边形"><a href="#多边形" class="headerlink" title="多边形"></a>多边形</h3><ul>
-<li><p>参数说明</p>
-<table>
-<thead>
-<tr>
-<th align="left">参数名称</th>
-<th>参数说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">Color</td>
-<td>边框颜色</td>
-<td>必填</td>
-</tr>
-<tr>
-<td align="left">BGColor</td>
-<td>填充色</td>
-<td>可选</td>
-</tr>
-<tr>
-<td align="left">Point</td>
-<td>点坐标数据结合</td>
-<td>必填</td>
-</tr>
-<tr>
-<td align="left">Date</td>
-<td>日期</td>
-<td>必填</td>
-</tr>
-<tr>
-<td align="left">Value</td>
-<td>数值</td>
-<td>必填</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>注意点</p>
-<p><strong>坐标要连续（例如绘制矩形：点坐标顺序是：左上点坐标——&gt;右上点坐标——&gt;右下点坐标——&gt;坐下点坐标）</strong></p>
-<p><strong>只要连续即可（顺时针或逆时针都行）</strong></p>
-</li>
-<li><p>数据格式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//绘制一个多边形</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 至少三个点坐标</span></span><br><span class="line">    type: <span class="string">'polygon'</span>,</span><br><span class="line">    data: [</span><br><span class="line">        <span class="comment">// 例如：矩型</span></span><br><span class="line">        &#123;</span><br><span class="line">            Color: <span class="string">'rgba(52,46,37,0)'</span>,</span><br><span class="line">            BGColor: <span class="string">'rgba(255,0,0,0.5)'</span>,</span><br><span class="line">            Point: [</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20200108</span>, <span class="attr">Value</span>: <span class="number">16.0</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20200213</span>, <span class="attr">Value</span>: <span class="number">16.0</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20200213</span>, <span class="attr">Value</span>: <span class="number">14.0</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20200108</span>, <span class="attr">Value</span>: <span class="number">14.0</span> &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//绘制多个多边形</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 至少三个点坐标</span></span><br><span class="line">    type: <span class="string">'polygon'</span>,</span><br><span class="line">    data: [</span><br><span class="line">        <span class="comment">// 例如：矩型</span></span><br><span class="line">        &#123;</span><br><span class="line">            Color: <span class="string">'rgba(52,46,37,0)'</span>,</span><br><span class="line">            BGColor: <span class="string">'rgba(255,0,0,0.5)'</span>,</span><br><span class="line">            Point: [</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20200108</span>, <span class="attr">Value</span>: <span class="number">16.0</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20200213</span>, <span class="attr">Value</span>: <span class="number">16.0</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20200213</span>, <span class="attr">Value</span>: <span class="number">14.0</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20200108</span>, <span class="attr">Value</span>: <span class="number">14.0</span> &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// 例如：三角形</span></span><br><span class="line">        &#123;</span><br><span class="line">            Color: <span class="string">'rgb(255,0,0)'</span>,</span><br><span class="line">            BGColor: <span class="string">'rgba(255,0,0,0.5)'</span>,</span><br><span class="line">            Point: [</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20191022</span>, <span class="attr">Value</span>: <span class="number">17.26</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20191113</span>, <span class="attr">Value</span>: <span class="number">15.5</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20190925</span>, <span class="attr">Value</span>: <span class="number">15.5</span> &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// 例如:五边形</span></span><br><span class="line">        &#123;</span><br><span class="line">            Color: <span class="string">'rgb(255,0,0)'</span>,</span><br><span class="line">            BGColor: <span class="string">'rgba(0,255,0,0.5)'</span>,</span><br><span class="line">            Point: [</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20190821</span>, <span class="attr">Value</span>: <span class="number">17.0</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20190903</span>, <span class="attr">Value</span>: <span class="number">15.5</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20190826</span>, <span class="attr">Value</span>: <span class="number">13.5</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20190813</span>, <span class="attr">Value</span>: <span class="number">13.5</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">Date</span>: <span class="number">20190808</span>, <span class="attr">Value</span>: <span class="number">15.5</span> &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;  </span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<h2 id="同时绘制多种类型"><a href="#同时绘制多种类型" class="headerlink" title="同时绘制多种类型"></a>同时绘制多种类型</h2><ul>
-<li><p>数据格式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        type: <span class="string">'dot'</span>,</span><br><span class="line">        data: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">Date</span>: <span class="number">20200220</span>,</span><br><span class="line">                Value: <span class="number">16.5</span>,</span><br><span class="line">                <span class="built_in">Symbol</span>: <span class="string">'\ue616'</span>, <span class="comment">// \ue616(买) \ue618（卖）</span></span><br><span class="line">                Color: <span class="string">'rgb(240,0,0)'</span>,</span><br><span class="line">                Baseline: <span class="number">0</span> <span class="comment">// 0 居中 1 上 2 下</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">Date</span>: <span class="number">20200318</span>,</span><br><span class="line">                Value: <span class="number">13.5</span>,</span><br><span class="line">                <span class="built_in">Symbol</span>: <span class="string">'\ue618'</span>, <span class="comment">// \ue616(买) \ue618（卖）</span></span><br><span class="line">                Color: <span class="string">'rgb(240,240,0)'</span>,</span><br><span class="line">                Baseline: <span class="number">0</span><span class="comment">// 0 居中 1 上 2 下</span></span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        type: <span class="string">'line'</span>,</span><br><span class="line">        data: [</span><br><span class="line">            &#123;</span><br><span class="line">                Color: <span class="string">'rgb(255,0,0)'</span>, <span class="comment">// 直线颜色</span></span><br><span class="line">                BGColor: <span class="string">'rgba(255,0,0,0.5)'</span>, <span class="comment">// 一条直线这一项可不写</span></span><br><span class="line">                Point: [</span><br><span class="line">                    &#123; <span class="attr">Date</span>: <span class="number">20200220</span>, <span class="attr">Value</span>: <span class="number">16.5</span> &#125;,</span><br><span class="line">                    &#123; <span class="attr">Date</span>: <span class="number">20200318</span>, <span class="attr">Value</span>: <span class="number">13.5</span> &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                Color: <span class="string">'rgb(255,0,0)'</span>, <span class="comment">// 直线颜色</span></span><br><span class="line">                BGColor: <span class="string">'rgba(255,0,0,0.5)'</span>, <span class="comment">// 一条直线这一项可不写</span></span><br><span class="line">                Point: [</span><br><span class="line">                    &#123; <span class="attr">Date</span>: <span class="number">20200220</span>, <span class="attr">Value</span>: <span class="number">13.5</span> &#125;,</span><br><span class="line">                    &#123; <span class="attr">Date</span>: <span class="number">20200318</span>, <span class="attr">Value</span>: <span class="number">16.5</span> &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        type: <span class="string">'area'</span>,</span><br><span class="line">        data: [</span><br><span class="line">            &#123;</span><br><span class="line">                Start: &#123; <span class="attr">Date</span>: <span class="number">20200220</span>, <span class="attr">Time</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">                End: &#123; <span class="attr">Date</span>: <span class="number">20200318</span>, <span class="attr">Time</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">                Color: <span class="string">'rgba(250,128,144,0.5)'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              Start: &#123; <span class="attr">Date</span>: <span class="number">20191206</span>, <span class="attr">Time</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">                End: &#123; <span class="attr">Date</span>: <span class="number">20200103</span>, <span class="attr">Time</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">                Color: <span class="string">'rgba(0,255,0,0.5)'</span></span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 至少三个点坐标</span></span><br><span class="line">        type: <span class="string">'polygon'</span>,</span><br><span class="line">        data: [</span><br><span class="line">            <span class="comment">// 例如：矩型</span></span><br><span class="line">            &#123;</span><br><span class="line">                Color: <span class="string">'rgba(52,46,37,0)'</span>,</span><br><span class="line">                BGColor: <span class="string">'rgba(255,0,0,0.5)'</span>,</span><br><span class="line">                Point: [</span><br><span class="line">                    &#123; <span class="attr">Date</span>: <span class="number">20200108</span>, <span class="attr">Value</span>: <span class="number">16.0</span> &#125;,</span><br><span class="line">                    &#123; <span class="attr">Date</span>: <span class="number">20200213</span>, <span class="attr">Value</span>: <span class="number">16.0</span> &#125;,</span><br><span class="line">                    &#123; <span class="attr">Date</span>: <span class="number">20200213</span>, <span class="attr">Value</span>: <span class="number">14.0</span> &#125;,</span><br><span class="line">                    &#123; <span class="attr">Date</span>: <span class="number">20200108</span>, <span class="attr">Value</span>: <span class="number">14.0</span> &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// 例如：三角形</span></span><br><span class="line">            &#123;</span><br><span class="line">                Color: <span class="string">'rgb(255,0,0)'</span>,</span><br><span class="line">                BGColor: <span class="string">'rgba(255,0,0,0.5)'</span>,</span><br><span class="line">                Point: [</span><br><span class="line">                    &#123; <span class="attr">Date</span>: <span class="number">20191022</span>, <span class="attr">Value</span>: <span class="number">17.26</span> &#125;,</span><br><span class="line">                    &#123; <span class="attr">Date</span>: <span class="number">20191113</span>, <span class="attr">Value</span>: <span class="number">15.5</span> &#125;,</span><br><span class="line">                    &#123; <span class="attr">Date</span>: <span class="number">20190925</span>, <span class="attr">Value</span>: <span class="number">15.5</span> &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// 例如:五边形</span></span><br><span class="line">            &#123;</span><br><span class="line">                Color: <span class="string">'rgb(255,0,0)'</span>,</span><br><span class="line">                BGColor: <span class="string">'rgba(0,255,0,0.5)'</span>,</span><br><span class="line">                Point: [</span><br><span class="line">                    &#123; <span class="attr">Date</span>: <span class="number">20190821</span>, <span class="attr">Value</span>: <span class="number">17.0</span> &#125;,</span><br><span class="line">                    &#123; <span class="attr">Date</span>: <span class="number">20190903</span>, <span class="attr">Value</span>: <span class="number">15.5</span> &#125;,</span><br><span class="line">                    &#123; <span class="attr">Date</span>: <span class="number">20190826</span>, <span class="attr">Value</span>: <span class="number">13.5</span> &#125;,</span><br><span class="line">                    &#123; <span class="attr">Date</span>: <span class="number">20190813</span>, <span class="attr">Value</span>: <span class="number">13.5</span> &#125;,</span><br><span class="line">                    &#123; <span class="attr">Date</span>: <span class="number">20190808</span>, <span class="attr">Value</span>: <span class="number">15.5</span> &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<h2 id="信息地雷"><a href="#信息地雷" class="headerlink" title="信息地雷"></a>信息地雷</h2><ul>
-<li><p>参数说明</p>
-<table>
-<thead>
-<tr>
-<th>参数名称</th>
-<th>参数说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>releasedate</td>
-<td>时间</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>title</td>
-<td>信息地雷提示信息</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>typeex</td>
-<td>图标（0：买/1：卖）</td>
-<td>必填</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>数据格式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    type:&#39;infoMine&#39;,</span><br><span class="line">    data:[</span><br><span class="line">        &#123; releasedate: 20200305, title: &#39;20200305扩展类型公告1&#39;, typeex: [0] &#125;,</span><br><span class="line">        &#123; releasedate: 20200323, title: &#39;20200323扩展类型公告2&#39;, typeex: [1] &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-
+      
+      <a class="article-more-link" href="/2020/05/08/%E5%8D%8F%E8%AE%AE/">阅读更多...</a>
+      
       
       <!-- reward -->
       
@@ -555,7 +274,7 @@
       
 
       
-      <p><img src="http://img0.imgtn.bdimg.com/it/u=2539572945,2458649791&fm=26&gp=0.jpg" alt="LOL"></p>
+      <p><img src="http://pic1.win4000.com/wallpaper/2020-04-07/5e8c181fd006a.jpg" alt="崩坏3"></p>
 
       
       <!-- reward -->
@@ -604,23 +323,10 @@
     <ul>
       <li>
         
-        
-        
-        由 <a href="https://hexo.io" target="_blank">Hexo</a> 强力驱动
-        <span class="division">|</span>
-        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
-        
       </li>
     </ul>
     <ul>
       <li>
-        
-        
-        <span>
-  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
-  <span class="division">|</span>
-  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
-</span>
         
       </li>
     </ul>
@@ -630,8 +336,6 @@
     <ul>
       <li>
         <!-- cnzz统计 -->
-        
-        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
         
       </li>
     </ul>
@@ -883,10 +587,6 @@
 <!-- Katex -->
 
 <!-- busuanzi  -->
-
-
-<script src="/js/busuanzi-2.3.pure.min.js"></script>
-
 
 <!-- ClickLove -->
 
