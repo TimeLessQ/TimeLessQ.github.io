@@ -75,6 +75,74 @@
     
     
     
+    <article id="post-uni-app中使用websocket" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/05/27/uni-app%E4%B8%AD%E4%BD%BF%E7%94%A8websocket/"
+    >uni-app中使用websocket</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/05/27/uni-app%E4%B8%AD%E4%BD%BF%E7%94%A8websocket/" class="article-date">
+  <time datetime="2020-05-27T02:48:30.230Z" itemprop="datePublished">2020-05-27</time>
+</a>
+      
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h1 id="uni-app中使用websocket"><a href="#uni-app中使用websocket" class="headerlink" title="uni-app中使用websocket"></a>uni-app中使用websocket</h1><blockquote>
+<p>话不多说，直接上代码</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">initWebSocket() &#123;</span><br><span class="line">    <span class="keyword">this</span>.socketTask = uni.connectSocket(&#123;</span><br><span class="line">        url: <span class="string">'ws://127.0.0.1:10115/ws/'</span>,<span class="comment">//websocket连接地址</span></span><br><span class="line">        success(data) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'websocket连接成功'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">this</span>.websocketonopen();</span><br><span class="line">    <span class="keyword">this</span>.websocketonmessage();</span><br><span class="line">    <span class="keyword">this</span>.websocketonerror();</span><br><span class="line">&#125;,</span><br><span class="line">websocketonopen() &#123;</span><br><span class="line">    <span class="keyword">const</span> actions = &#123; <span class="attr">topic</span>: <span class="string">'auth'</span>, <span class="attr">key</span>: <span class="string">'000000000'</span> &#125;;<span class="comment">//初始化验证信息（与后段约定的）</span></span><br><span class="line">    <span class="keyword">this</span>.socketTask.onOpen(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.websocketsend(actions);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;,</span><br><span class="line">websocketonmessage() &#123;</span><br><span class="line">    <span class="keyword">this</span>.socketTask.onMessage(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;,</span><br><span class="line">websocketsend(data) &#123;</span><br><span class="line">    <span class="keyword">this</span>.socketTask.send(&#123;</span><br><span class="line">        data: <span class="built_in">JSON</span>.stringify(data),</span><br><span class="line">        success: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'消息发送成功'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;,</span><br><span class="line">websocketonclose() &#123;</span><br><span class="line">    <span class="keyword">this</span>.socketTask.close(&#123;</span><br><span class="line">        success(res) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'关闭成功'</span>, res);</span><br><span class="line">        &#125;,</span><br><span class="line">        fail(err) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'关闭失败'</span>, err);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;,</span><br><span class="line">websocketonerror() &#123;</span><br><span class="line">    <span class="keyword">this</span>.socketTask.onError(<span class="function"><span class="params">errMsg</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.initWebSocket();<span class="comment">//断开重连</span></span><br><span class="line">        <span class="built_in">console</span>.log(errMsg);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-hexo如何发表文章" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -119,96 +187,6 @@
 <li><p>学会使用makedown写文章（语法很简单，5分钟上手）</p>
       
       <a class="article-more-link" href="/2020/05/08/hexo%E5%A6%82%E4%BD%95%E5%8F%91%E8%A1%A8%E6%96%87%E7%AB%A0/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-协议" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/05/08/%E5%8D%8F%E8%AE%AE/"
-    >kline绘图打点协议</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/05/08/%E5%8D%8F%E8%AE%AE/" class="article-date">
-  <time datetime="2020-05-08T02:31:31.626Z" itemprop="datePublished">2020-05-08</time>
-</a>
-      
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h1 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h1><h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><ul>
-<li><p>参数说明</p>
-<table>
-<thead>
-<tr>
-<th>参数名称</th>
-<th>参数说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>type</td>
-<td>绘制类型（目前可选：dot/line/area/polygon）</td>
-<td>必填</td>
-</tr>
-<tr>
-<td>data</td>
-<td>数据</td>
-<td>必填</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-      
-      <a class="article-more-link" href="/2020/05/08/%E5%8D%8F%E8%AE%AE/">阅读更多...</a>
       
       
       <!-- reward -->
