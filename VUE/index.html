@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    VUEX |  TimeLess
+    VUE |  TimeLess
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -49,7 +49,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  VUEX
+  VUE
 </h1>
  
 
@@ -66,36 +66,7 @@
       
 
       
-      <h1 id="Vuex教程"><a href="#Vuex教程" class="headerlink" title="Vuex教程"></a>Vuex教程</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
-<li>在一个模块化的打包系统中，您必须显式地通过 Vue.use() 来安装 Vuex，比如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">import Vuex from &#39;vuex&#39;</span><br><span class="line">Vue.use(Vuex)</span><br></pre></td></tr></table></figure>
-当使用全局 script 标签引用 Vuex 时，就不用那么麻烦了，直接引用进来就好，但要注意引用的先后顺序，如下：<br>// 在 Vue 之后引入 vuex 会进行自动安装<script src="/path/to/vue.js"></script>
-<script src="/path/to/vuex.js"></script>
-虽然 script 的方式看起来比较自动化，但是接触得多了，你就会明白模块化其实才是我们的最佳姿势。</li>
-</ul>
-<p>揭开 Vuex 的神秘面纱<br>拿到一个工具，我们第一时间需要弄明白的，就是这个工具到底能够帮助我们解决什么问题。比如锤子，砸得了鸡蛋打得了电话，比如苹果，不但能吃还能玩。那么 Vuex 呢，如果把 Vue.js 比喻成路人（走路的人）的话，那么 Vuex 就是他的桑塔纳，如果他想去隔壁买包烟，那走过去就行了，开个车过去反而是一种负担，但是如果他想去几十公里的学校采花，那桑塔纳就得派上用场了，不然等他走过去，可能花儿都谢了。</p>
-<p>当然，类比只是为了告诉我们 Vuex 的价值所在，那么在具体在实际的应用中，它能干什么？什么时候才需要翻它的牌呢？</p>
-<p>我们先来看一段官方代码：</p>
-<p>new Vue({<br>  // state  数据源<br>  data () {<br>    return {<br>      count: 0<br>    }<br>  },<br>  // view  视图<br>  template: <code>&lt;div&gt;&lt;/div&gt;</code>,<br>  // actions  事件<br>  methods: {<br>    increment () {<br>      this.count++<br>    }<br>  }<br>})<br>这是一个很简单的增长型计数功能页面，和 Vue.js 有一腿的，应该秒懂。通过事件 increment，实现 count 增长，然后渲染到界面上去。</p>
-<p>这种方式其实就跟走路买烟一样，属于短途效应，官方称作为「单向数据流」，很好理解。</p>
-<p>单向数据流<br>但是，情况变了，现在有两个页面 A 和 B，还有以下两个要求：</p>
-<p>要求它们都能对 count 进行操控。<br>要求 A 修改了 count 后，B 要第一时间知道，B 修改后，A 也要第一时间知道。<br>怎么办？稍微有点开发经验的，就能够很容易的想到，把数据源 count 剥离开来，用一个全局变量或者全局单例的模式进行管理，这样不就在任何页面都可以很容易的取到这个状态了。</p>
-<p>是啊，这尼玛就是 Vuex 背后的思想啊，它干的就是这个事情。是不是有一种被 Vuex 这个高大上的名号所坑害的感觉，不就是全局模型吗，不用它也同样可能搞定嘛。</p>
-<p>是的，也可以搞定，就像没有桑塔纳，你也可以去学校看花一样，只是经历的过程不一样了。</p>
-<p>Vuex 的目的是为了管理共享状态，为了达到这个目的，它制定了一系列的规则，比如修改数据源 state、触发 actions 等等，都需要遵循它的规则，以此来达到让项目结构更加清晰且易于维护的目的。</p>
-<p>那么我们再来看看官方的描述：</p>
-<p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</p>
-<p>有没有瞬间清晰多了。</p>
-<p>什么时候翻 Vuex 的牌<br>其实了解了 Vuex 要干的活以后，什么时候翻牌，那就容易选择得多了。就像前面的类比一样，去隔壁买包烟，你还开个桑塔纳，找停车位的时间，烟都抽完了。</p>
-<p>所以，我们要根据项目的需要，来衡量短期和长期的效益，如果不打算开发大型的单页应用，那 Vuex 可能还是你的一个负担。对于一些不大不小的项目，自己又懒得走，开车又觉得麻烦，那你骑个共享单车过去也行嘛。</p>
-<p>这里的共享单车指代的是官方中的一个简单的 store 模式，其实就是一个单纯的全局对象。</p>
-<p>关于全局对象和 Vuex 之间的区别，官方写得还是比较通俗易懂的：</p>
-<p>Vuex 和单纯的全局对象有以下两点不同：</p>
-<p>Vuex 的状态存储是响应式的。当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会相应地得到高效更新。<br>你不能直接改变 store 中的状态。改变 store 中状态的唯一途径就是显式地提交 (commit) mutation。这样使得我们可以方便地跟踪每一个状态的变化，从而让我们能够实现一些工具帮助我们更好地了解我们的应用。<br>简单示例<br>// 如果在模块化构建系统中，请确保在开头调用了 Vue.use(Vuex)<br>const store = new Vuex.Store({<br>  state: {<br>    count: 0<br>  },<br>  mutations: {<br>    increment (state) {<br>      state.count++<br>    }<br>  }<br>})<br>每一个 Vuex 应用的核心就是 store（仓库）。store 基本上就是一个容器，它包含着你的应用中大部分的状态 (state)。</p>
-<p>注意：如果 mutations 不知道是什么，没关系，后面会专门讲解到，可以单纯的理解为只能用它里面的方法来修改 state 中的数据。</p>
-<p>store.commit(‘increment’) // 调用 mutations 中的方法<br>console.log(store.state.count) // -&gt; 1<br>为什么要这样设计的，官方也给出了具体的原因：</p>
-<p>我们通过提交 mutation 的方式，而非直接改变 store.state.count，是因为我们想要更明确地追踪到状态的变化。这个简单的约定能够让你的意图更加明显，这样你在阅读代码的时候能更容易地解读应用内部的状态改变。此外，这样也让我们有机会去实现一些能记录每次状态改变，保存状态快照的调试工具。有了它，我们甚至可以实现如时间穿梭般的调试体验。</p>
-<p>由于 store 中的状态是响应式的，在组件中调用 store 中的状态简单到仅需要在计算属性中返</p>
-
+      
       
       <!-- reward -->
       
