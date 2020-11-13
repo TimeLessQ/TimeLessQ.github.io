@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    base64位图片上传至七牛云 |  TimeLess
+    uniPush离线推送 |  TimeLess
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -41,7 +41,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-base64位图片上传至七牛云" class="article article-type-post" itemscope
+  <article id="post-uniPush离线推送" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -49,7 +49,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  base64位图片上传至七牛云
+  uniPush离线推送
 </h1>
  
 
@@ -58,8 +58,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/09/28/base64%E4%BD%8D%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E8%87%B3%E4%B8%83%E7%89%9B%E4%BA%91/" class="article-date">
-  <time datetime="2020-09-28T06:31:11.224Z" itemprop="datePublished">2020-09-28</time>
+      <a href="/2020/10/22/uniPush%E7%A6%BB%E7%BA%BF%E6%8E%A8%E9%80%81/" class="article-date">
+  <time datetime="2020-10-22T04:58:23.564Z" itemprop="datePublished">2020-10-22</time>
 </a>
       
       
@@ -69,7 +69,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">477</span>
+            <span class="post-count">292</span>
         </span>
     </span>
 
@@ -78,7 +78,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">1 分钟</span>
         </span>
     </span>
 </div>
@@ -103,18 +103,32 @@
       
 
       
-      <h1 id="base64位图片上传至七牛云"><a href="#base64位图片上传至七牛云" class="headerlink" title="base64位图片上传至七牛云"></a>base64位图片上传至七牛云</h1><ul>
-<li>生成token<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#这是利用python生成的token</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> qiniu <span class="keyword">import</span> Auth</span><br><span class="line"><span class="comment">#需要填写你的 Access Key 和 Secret Key</span></span><br><span class="line">access_key = <span class="string">''</span></span><br><span class="line">secret_key = <span class="string">''</span></span><br><span class="line"><span class="comment">#构建鉴权对象</span></span><br><span class="line">q = Auth(access_key, secret_key)</span><br><span class="line"><span class="comment">#要上传的空间</span></span><br><span class="line">bucket_name = <span class="string">''</span></span><br><span class="line"><span class="comment">#上传后保存的文件名</span></span><br><span class="line">key = <span class="string">''</span></span><br><span class="line"><span class="comment">#生成上传 Token，可以指定过期时间等</span></span><br><span class="line"><span class="comment"># 上传策略示例</span></span><br><span class="line"><span class="comment"># https://developer.qiniu.com/kodo/manual/1206/put-policy</span></span><br><span class="line">policy = &#123;</span><br><span class="line"><span class="comment"># 'callbackUrl':'https://requestb.in/1c7q2d31',</span></span><br><span class="line"><span class="comment"># 'callbackBody':'filename=$(fname)&amp;filesize=$(fsize)'</span></span><br><span class="line"><span class="comment"># 'persistentOps':'imageView2/1/w/200/h/200'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#3600为token过期时间，秒为单位。3600等于一小时</span></span><br><span class="line">token = q.upload_token(bucket_name, key, <span class="number">3600</span>, policy)</span><br><span class="line">print(token)</span><br></pre></td></tr></table></figure></li>
-<li>获取token <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> getToken() &#123;</span><br><span class="line">    <span class="keyword">this</span>.token = <span class="keyword">await</span> <span class="keyword">this</span>.$u.api.getToken();</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
-<li>获取base64地址，计算大小<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fileSize(str) &#123;</span><br><span class="line">    <span class="keyword">let</span> fileSize = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (str.indexOf(<span class="string">'='</span>) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> indexOf = str.indexOf(<span class="string">'='</span>);</span><br><span class="line">        str = str.substring(<span class="number">0</span>, indexOf); <span class="comment">//把末尾的=号去掉</span></span><br><span class="line">    &#125;</span><br><span class="line">    fileSize = <span class="built_in">parseInt</span>(str.length - (str.length / <span class="number">8</span>) * <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> fileSize;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
-<li>上传图片至七牛云<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//计算大小时需要去掉base64,之前的部分，包括base4,(注意','也要去掉)</span></span><br><span class="line"><span class="keyword">const</span> file = path.split(<span class="string">'base64,'</span>)[<span class="number">1</span>]</span><br><span class="line"><span class="keyword">const</span> fileSize = <span class="keyword">this</span>.fileSize(file)</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    <span class="comment">//this.uploadURL为上传的七牛云地址，因区域而已(例如：华南空间为=&gt;http://upload.qiniup.com/putb64/)</span></span><br><span class="line">    <span class="comment">//fileSize就是原图字节大小</span></span><br><span class="line">    url: <span class="keyword">this</span>.uploadURL + fileSize,<span class="comment">//"http://upload.qiniup.com/putb64/20264"</span></span><br><span class="line">    type: <span class="string">'POST'</span>,</span><br><span class="line">    <span class="keyword">async</span>: <span class="literal">false</span>,</span><br><span class="line">    beforeSend: <span class="function"><span class="params">request</span> =&gt;</span> &#123;</span><br><span class="line">        request.setRequestHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/octet-stream'</span>);</span><br><span class="line">        request.setRequestHeader(<span class="string">'Authorization'</span>, <span class="string">"UpToken "</span> + <span class="keyword">this</span>.token);</span><br><span class="line">    &#125;,</span><br><span class="line">    data: file,</span><br><span class="line">    success: <span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        this.imgURL为你的七牛云图床存储地址</span></span><br><span class="line"><span class="comment">        data.key是由七牛云随机生成的图片地址</span></span><br><span class="line"><span class="comment">        二者拼接就是完整的图片地址，可直接访问</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="keyword">this</span>.form.img_url = <span class="keyword">this</span>.imgURL + data.key</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-注意事项：<ul>
-<li>upload.qiniup.com 上传域名适用于华东空间。华北空间使用 upload-z1.qiniup.com，华南空间使用 upload-z2.qiniup.com，北美空间使用 upload-na0.qiniup.com。</li>
-<li>this.uploadURL = “<a href="http://upload.qiniup.com/putb64/20264&quot;;这里的" target="_blank" rel="noopener">http://upload.qiniup.com/putb64/20264&quot;;这里的</a> 20264 是图片没经过 base64 处理的原图字节大小。</li>
-<li>request.setRequestHeader(‘Authorization’, “UpToken “ + this.token);这里的token就是服务端请求的 token 字符串</li>
+      <h1 id="uniPush离线推送-华为-小米"><a href="#uniPush离线推送-华为-小米" class="headerlink" title="uniPush离线推送(华为/小米)"></a>uniPush离线推送(华为/小米)</h1><h2 id="华为"><a href="#华为" class="headerlink" title="华为"></a>华为</h2><ol>
+<li><p>前往<a href="https://id1.cloud.huawei.com/AMW/portal/homepage.html" target="_blank" rel="noopener">华为开发者联盟</a>注册账号</p>
+</li>
+<li><p>注册完成后到前往管理中心=&gt;我的应用 =&gt;新建项目<br><img src="https://img-blog.csdnimg.cn/20200611191742550.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L29iamVjdF9vcmllbnRlZA==,size_16,color_FFFFFF,t_70" alt="图片地址 &#39;&#39;图片title&#39;&#39;"></p>
+</li>
+<li><p>新建完成后，点击开发进入如下页面<br><img src="https://img-blog.csdnimg.cn/20200611192059700.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L29iamVjdF9vcmllbnRlZA==,size_16,color_FFFFFF,t_70" alt="图片alt"></p>
+</li>
+<li><p>填写包名，这个包名很重要，需要和unipush的包名保持一致。</p>
+</li>
+<li><p>项目创建完成后需要生成指纹证书文件</p>
+<ul>
+<li>如果配置了java环境变量就可以直接往下走，如果没有就需要执行cd命令进入keytool.exe所在的目录（java安装目录的bin下）</li>
+<li>在命令行输入命令      keytool -genkey -alias testalias -keyalg RSA -keysize 2048 -validity 36500 -keystore  (文件位置)</li>
+<li>查看keystore文件,输入命令：keytool -list -v -keystore (文件位置)</li>
 </ul>
 </li>
-</ul>
+<li><p>将生成的SHA256填入如图标记部分。<br><img src="https://img-blog.csdnimg.cn/20200615191318465.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L29iamVjdF9vcmllbnRlZA==,size_16,color_FFFFFF,t_70" alt="图片alt"></p>
+</li>
+<li><p>项目信息完成后，开通推送服务<br><img src="https://img-blog.csdnimg.cn/20200615191936674.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L29iamVjdF9vcmllbnRlZA==,size_16,color_FFFFFF,t_70" alt="图片alt"><br><img src="https://img-blog.csdnimg.cn/202006151920425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L29iamVjdF9vcmllbnRlZA==,size_16,color_FFFFFF,t_70" alt="图片alt"></p>
+</li>
+</ol>
+<h2 id="小米"><a href="#小米" class="headerlink" title="小米"></a>小米</h2><ol>
+<li>前往小米开发者平台注册账号,开通权限</li>
+<li>账号注册完成，就可去到推送运营平台。点击创建应用，创建自己的推送项目，注意报名要与unipush保持一致</li>
+<li>点击应用信息就可以拿到，推送需要的应用信息<br><img src="https://img-blog.csdnimg.cn/20200616090314540.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L29iamVjdF9vcmllbnRlZA==,size_16,color_FFFFFF,t_70" alt="图片alt"></li>
+</ol>
 
       
       <!-- reward -->
@@ -179,7 +193,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.github.com/TimeLessQ/2020/09/28/base64%E4%BD%8D%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E8%87%B3%E4%B8%83%E7%89%9B%E4%BA%91/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.github.com/TimeLessQ/2020/10/22/uniPush%E7%A6%BB%E7%BA%BF%E6%8E%A8%E9%80%81/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -195,19 +209,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/10/22/uniPush%E7%A6%BB%E7%BA%BF%E6%8E%A8%E9%80%81/" class="article-nav-link">
+      <a href="/2020/11/13/vue-electron%E6%89%93%E5%8C%85%E5%A4%B1%E8%B4%A5/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            uniPush离线推送
+            vue-electron打包失败
           
         </div>
       </a>
     
     
-      <a href="/2020/05/27/uni-app%E4%B8%AD%E4%BD%BF%E7%94%A8websocket/" class="article-nav-link">
+      <a href="/2020/09/28/base64%E4%BD%8D%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E8%87%B3%E4%B8%83%E7%89%9B%E4%BA%91/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">uni-app中使用websocket</div>
+        <div class="article-nav-title">base64位图片上传至七牛云</div>
       </a>
     
   </nav>
